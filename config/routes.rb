@@ -1,5 +1,11 @@
 MediaManager::Application.routes.draw do
 
+  resources :videos
+
+  resources :songs
+
+  resources :owners
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

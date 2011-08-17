@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  filename: MyString
+  title: MyString
+  artist: MyString
+  album: MyString
+  length: MyString
+  year: MyString
+  owner: MyString
+  albumart: MyString
+  playcount: 
+  lastplay: MyString
+  notes: MyText
+
+two:
+  filename: MyString
+  title: MyString
+  artist: MyString
+  album: MyString
+  length: MyString
+  year: MyString
+  owner: MyString
+  albumart: MyString
+  playcount: 
+  lastplay: MyString
+  notes: MyText

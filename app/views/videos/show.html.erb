@@ -1,0 +1,85 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Filename:</b>
+  <%= @video.filename %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @video.title %>
+</p>
+
+<p>
+  <b>Istv:</b>
+  <%= @video.isTV %>
+</p>
+
+<p>
+  <b>Series:</b>
+  <%= @video.series %>
+</p>
+
+<p>
+  <b>Episode:</b>
+  <%= @video.episode %>
+</p>
+
+<p>
+  <b>Season:</b>
+  <%= @video.season %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%= @video.year %>
+</p>
+
+<p>
+  <b>Length:</b>
+  <%= @video.length %>
+</p>
+
+<p>
+  <b>Owner:</b>
+  <%= @video.owner %>
+</p>
+
+<p>
+  <b>Rating:</b>
+  <%= @video.rating %>
+</p>
+
+<p>
+  <b>Director:</b>
+  <%= @video.director %>
+</p>
+
+<p>
+  <b>Actors:</b>
+  <%= @video.actors %>
+</p>
+
+<p>
+  <b>Playcount:</b>
+  <%= @video.playcount %>
+</p>
+
+<p>
+  <b>Lastplay:</b>
+  <%= @video.lastplay %>
+</p>
+
+<p>
+  <b>Thumbnail:</b>
+  <%= @video.thumbnail %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @video.notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>

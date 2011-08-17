@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  filename: MyString
+  title: MyString
+  isTV: 
+  series: MyString
+  episode: 
+  season: 
+  year: MyString
+  length: MyString
+  owner: MyString
+  rating: 
+  director: MyString
+  actors: MyString
+  playcount: 
+  lastplay: MyString
+  thumbnail: MyString
+  notes: MyText
+
+two:
+  filename: MyString
+  title: MyString
+  isTV: 
+  series: MyString
+  episode: 
+  season: 
+  year: MyString
+  length: MyString
+  owner: MyString
+  rating: 
+  director: MyString
+  actors: MyString
+  playcount: 
+  lastplay: MyString
+  thumbnail: MyString
+  notes: MyText

@@ -1,0 +1,53 @@
+<h1>Listing videos</h1>
+
+<table>
+  <tr>
+    <th>Filename</th>
+    <th>Title</th>
+    <th>Istv</th>
+    <th>Series</th>
+    <th>Episode</th>
+    <th>Season</th>
+    <th>Year</th>
+    <th>Length</th>
+    <th>Owner</th>
+    <th>Rating</th>
+    <th>Director</th>
+    <th>Actors</th>
+    <th>Playcount</th>
+    <th>Lastplay</th>
+    <th>Thumbnail</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @videos.each do |video| %>
+  <tr>
+    <td><%= video.filename %></td>
+    <td><%= video.title %></td>
+    <td><%= video.isTV %></td>
+    <td><%= video.series %></td>
+    <td><%= video.episode %></td>
+    <td><%= video.season %></td>
+    <td><%= video.year %></td>
+    <td><%= video.length %></td>
+    <td><%= video.owner %></td>
+    <td><%= video.rating %></td>
+    <td><%= video.director %></td>
+    <td><%= video.actors %></td>
+    <td><%= video.playcount %></td>
+    <td><%= video.lastplay %></td>
+    <td><%= video.thumbnail %></td>
+    <td><%= video.notes %></td>
+    <td><%= link_to 'Show', video %></td>
+    <td><%= link_to 'Edit', edit_video_path(video) %></td>
+    <td><%= link_to 'Destroy', video, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Video', new_video_path %>
