@@ -1,3 +1,5 @@
+require 'active_support/all'
+
 class MediaManagerConfig
 
   def MovieDirectory
@@ -29,6 +31,13 @@ class MediaManagerConfig
 
   def ToJson
   	return ActiveSupport::JSON.encode(self)
+  end
+
+  def FromJson(string)
+    attributes = ActiveSupport::JSON.decode(string)
+    @movieDirectory = attributes["movieDirectory"]
+    @musicDirectory = attributes["musicDirectory"]
+    @organizeDirectories = attributes["organizeDirectories"]
   end
 
 end
