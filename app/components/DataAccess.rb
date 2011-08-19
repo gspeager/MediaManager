@@ -1,29 +1,28 @@
 require 'fileutils'
+require_relative 'MediaManagerConfig'
 
 class DataAccess
 
-  def MovieDirectory
-    @movieDirectory
+  def Config
+    @Config
+  end
+  def Config=(config)
+    @Config = config
   end
 
-  def MovieDirectory=(movie)
-    @movieDirectory = movie
-  end
-
-  def MusicDirectory
-    @musicDirectory
-  end
-
-  def MusicDirectory=(music)
-    @musicDirectory = music
-  end
-
-  def initialize(movie, music)
-    @movieDirectory = movie
-    @musicDirectory = music
+  def initialize(string)
+    @configLocation = string
+    @Config = MediaManagerConfig.new(self.ReadConfigFile)
     @movieExtensions = ['.avi', '.mp4', '.wmv']
     @musicExtensions = ['.mp3', '.ogg', '.wma']
   end
+
+  #def initialize(movie, music)
+  #  @movieDirectory = movie
+  #  @musicDirectory = music
+  #  @movieExtensions = ['.avi', '.mp4', '.wmv']
+  #  @musicExtensions = ['.mp3', '.ogg', '.wma']
+  #end
 
   def ReadMovieDirectory
     movieArray = GetAllFiles(@movieDirectory, @movieExtensions)
@@ -61,6 +60,21 @@ class DataAccess
       FileUtils.mkdir_p(File.dirname(newFileName))
     end
     FileUtils.mv(oldFileName, newFileName)
+  end
+
+  def ReadConfigFile
+    file  = File.new(@configLocation, "r")
+    if line = file.gets
+      file.close
+      return line
+    end
+    return ""
+  end
+
+  def WriteConfigFile
+    File.open(@configLocation, "w") do |f|  
+      f.puts @Config.ToJson
+    end
   end
 
 end

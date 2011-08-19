@@ -23,10 +23,10 @@ class MediaManagerConfig
     @organizeDirectories = organize
   end
 
-  def initialize(movie, music, organize)
-    @movieDirectory = movie
-    @musicDirectory = music
-    @organizeDirectories = organize
+  def initialize(jsonstring)
+    if !jsonstring.empty?
+      FromJson(jsonstring)
+    end
   end
 
   def ToJson
