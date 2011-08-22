@@ -3,17 +3,17 @@ class CreateVideos < ActiveRecord::Migration
     create_table :videos do |t|
       t.string :filename
       t.string :title
-      t.bool :isTV
+      t.boolean :isTV
       t.string :series
-      t.number :episode
-      t.number :season
+      t.integer :episode
+      t.integer :season
       t.string :year
       t.string :length
       t.string :owner
-      t.number :rating
+      t.float :rating
       t.string :director
       t.string :actors
-      t.number :playcount
+      t.integer :playcount
       t.string :lastplay
       t.string :thumbnail
       t.text :notes
