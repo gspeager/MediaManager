@@ -1,0 +1,13 @@
+---
+development:
+  music_directory: c:\Documents\music
+  movie_directory: c:\Movies
+  organize: true
+test:
+  music_directory: c:\Music
+  movie_directory: c:\Movies
+  organize: true
+production:
+  music_directory: c:\Music
+  movie_directory: c:\Movies
+  organize: true

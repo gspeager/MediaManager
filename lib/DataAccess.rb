@@ -1,28 +1,37 @@
 require 'fileutils'
-require_relative 'MediaManagerConfig'
+require 'yaml'
+require 'rubygems'
 
-class DataAccess
+class DataAccess < ActiveRecord::Base
 
-  def Config
-    @Config
+  def MusicDirectory
+    return ENVIRONMENT_CONFIG['music_directory']
   end
-  def Config=(config)
-    @Config = config
+  def MusicDirectory=(music)
+    ENVIRONMENT_CONFIG['music_directory'] = music
   end
 
-  def initialize(string)
-    @configLocation = string
-    @Config = MediaManagerConfig.new(self.ReadConfigFile)
+  def MovieDirectory
+    return ENVIRONMENT_CONFIG['movie_directory']
+  end
+  def MovieDirectory=(movie)
+    ENVIRONMENT_CONFIG['movie_directory'] = movie
+  end
+
+  def OrganizeFiles
+    return ENVIRONMENT_CONFIG['organize']
+  end
+  def OrganizeFiles=(value)
+    ENVIRONMENT_CONFIG['organize'] = value
+  end
+
+  def initialize()
+
     @movieExtensions = ['.avi', '.mp4', '.wmv']
     @musicExtensions = ['.mp3', '.ogg', '.wma']
+    #dbconfig = YAML::load(File.open('database.yml'))
+    #ActiveRecord::Base.establish_connection(dbconfig)
   end
-
-  #def initialize(movie, music)
-  #  @movieDirectory = movie
-  #  @musicDirectory = music
-  #  @movieExtensions = ['.avi', '.mp4', '.wmv']
-  #  @musicExtensions = ['.mp3', '.ogg', '.wma']
-  #end
 
   def ReadMovieDirectory
     movieArray = GetAllFiles(@movieDirectory, @movieExtensions)
@@ -62,18 +71,11 @@ class DataAccess
     FileUtils.mv(oldFileName, newFileName)
   end
 
-  def ReadConfigFile
-    file  = File.new(@configLocation, "r")
-    if line = file.gets
-      file.close
-      return line
-    end
-    return ""
-  end
-
   def WriteConfigFile
-    File.open(@configLocation, "w") do |f|  
-      f.puts @Config.ToJson
+    puts CONFIG_LOCATION
+    APP_CONFIG[Rails.env] = ENVIRONMENT_CONFIG
+    File.open(CONFIG_LOCATION, "w") do |f|  
+      f.puts YAML::dump(APP_CONFIG)
     end
   end
 
