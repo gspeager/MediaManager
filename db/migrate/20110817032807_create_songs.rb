@@ -7,6 +7,7 @@ class CreateSongs < ActiveRecord::Migration
       t.string :album
       t.string :length
       t.string :year
+      t.string :genre
       t.string :owner
       t.string :albumart
       t.integer :playcount

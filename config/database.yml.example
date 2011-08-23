@@ -1,7 +1,7 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: mediaManger_development
+  database: mediaManager_development
   pool: 5
   username: root
   password:
@@ -13,7 +13,7 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  database: mediaManger_test
+  database: mediaManager_test
   pool: 5
   username: root
   password:
@@ -22,7 +22,7 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: mediaManger_production
+  database: mediaManager_production
   pool: 5
   username: root
   password:

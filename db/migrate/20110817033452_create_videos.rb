@@ -10,6 +10,7 @@ class CreateVideos < ActiveRecord::Migration
       t.string :year
       t.string :length
       t.string :owner
+      t.string :genre
       t.float :rating
       t.string :director
       t.string :actors
