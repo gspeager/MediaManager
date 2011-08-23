@@ -1,8 +1,10 @@
 require 'fileutils'
 require 'yaml'
 require 'rubygems'
+require 'song'
+require 'video'
 
-class DataAccess < ActiveRecord::Base
+class DataAccess
 
   def MusicDirectory
     return ENVIRONMENT_CONFIG['music_directory']
@@ -26,24 +28,21 @@ class DataAccess < ActiveRecord::Base
   end
 
   def initialize()
-
     @movieExtensions = ['.avi', '.mp4', '.wmv']
     @musicExtensions = ['.mp3', '.ogg', '.wma']
-    #dbconfig = YAML::load(File.open('database.yml'))
-    #ActiveRecord::Base.establish_connection(dbconfig)
   end
 
   def ReadMovieDirectory
-    movieArray = GetAllFiles(@movieDirectory, @movieExtensions)
+    movieArray = GetAllFiles(ENVIRONMENT_CONFIG['movie_directory'], @movieExtensions)
     movieArray.each { |f|
-      puts f
+      InsertVideo(f)
     }
   end
 
   def ReadMusicDirectory 
-    musicArray = GetAllFiles(@musicDirectory, @musicExtensions)
+    musicArray = GetAllFiles(ENVIRONMENT_CONFIG['music_directory'], @musicExtensions)
     musicArray.each { |f|
-      puts f
+      InsertSong(f)
     }
   end
 
@@ -53,7 +52,7 @@ class DataAccess < ActiveRecord::Base
     Dir.entries(directoryName).each { |f|
       next if f == '.' || f == '..'
       if File.directory?(f)
-        resultArray.push(GetAllFiles(directoryName + "\\" + f, extensionList))
+        resultArray = resultArray + GetAllFiles(directoryName + "\\" + f, extensionList)
         Dir.chdir(directoryName)
       else
         if extensionList.include?(File.extname(f))
@@ -69,6 +68,21 @@ class DataAccess < ActiveRecord::Base
       FileUtils.mkdir_p(File.dirname(newFileName))
     end
     FileUtils.mv(oldFileName, newFileName)
+  end
+
+  def InsertSong(filename)
+    s = Song.find_or_initialize_by_filename(filename)
+    if s.title == nil || s.title.emtpy?
+      s.title = File.basename(filename, File.extname(filename))
+      s.save
+    end
+  end
+  def InsertVideo(filename)
+    v = Video.find_or_initialize_by_filename(filename)
+    if v.title == nil || v.title.emtpy?
+      v.title = File.basename(filename, File.extname(filename))
+      v.save
+    end
   end
 
   def WriteConfigFile
