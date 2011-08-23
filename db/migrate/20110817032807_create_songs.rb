@@ -6,6 +6,7 @@ class CreateSongs < ActiveRecord::Migration
       t.string :artist
       t.string :album
       t.string :length
+      t.integer :tracknumber
       t.string :year
       t.string :genre
       t.string :owner

@@ -1,7 +1,7 @@
 ---
 development:
-  music_directory: c:\Documents\music
-  movie_directory: c:\Movies
+  music_directory: c:\media\music
+  movie_directory: c:\media\movies
   organize: true
 test:
   music_directory: c:\Music
