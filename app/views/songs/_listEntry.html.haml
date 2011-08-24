@@ -1,0 +1,12 @@
+.songInfoLine
+  .mediaTitle= song.title
+  .trackNumber= song.tracknumber
+  .length= song.length
+  .albumName= song.album
+  .artistName= song.artist
+  .playCount= song.playcount
+  .mediaRating= song.rating
+  .listItemActions
+    %a{:href => "#"}="edit"
+.songEditSection
+  %input{:type => "submit", :value => "Save"}

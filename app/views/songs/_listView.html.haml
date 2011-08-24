@@ -1,0 +1,12 @@
+.songListView
+  .listHeaderSection
+    .mediaTitle= "Title"
+    .trackNumber= "Track #"
+    .length= "Length"
+    .albumName= "Album"
+    .artistName= "Artist"
+    .playCount= "Plays"
+    .mediaRating= "Rating"
+    .listItemActions= " "
+  - @songs.each do |song|
+    = render :partial => "songs/listEntry", :locals => { :song => song }

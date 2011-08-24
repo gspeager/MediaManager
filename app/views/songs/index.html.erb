@@ -1,6 +1,9 @@
 <h1>Listing songs</h1>
 
-<table>
+
+<%= render :partial => "songs/listView" %>
+
+<!--<table>
   <tr>
     <th>Filename</th>
     <th>Title</th>
@@ -38,6 +41,6 @@
 <% end %>
 </table>
 
-<br />
+<br />-->
 
 <%= link_to 'New Song', new_song_path %>

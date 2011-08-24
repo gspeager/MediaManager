@@ -11,6 +11,7 @@ class CreateSongs < ActiveRecord::Migration
       t.string :genre
       t.string :owner
       t.string :albumart
+      t.float :rating
       t.integer :playcount
       t.string :lastplay
       t.text :notes
