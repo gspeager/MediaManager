@@ -3,4 +3,4 @@ db/*.sqlite3
 log/*.log
 tmp/
 
-database.yml
+database.yml/.sass-cache*
