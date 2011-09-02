@@ -1,4 +1,4 @@
-.songInfoLine
+.songInfoLine{:id => ["songInfoLine_" + song.id.to_s]}
   - if song.title != nil
     .mediaTitle
       %a{:href => "#"}= song.title
@@ -36,6 +36,6 @@
     .mediaRating
       %i="nil"
   .listItemActions
-    %a{:href => "#"}="edit"
-.songEditSection
+    .editLink{:id => ["editLink_" + song.id.to_s]}="edit"
+.songEditSection{:id => ["songEditSection_" + song.id.to_s]}
   %input{:type => "submit", :value => "Save"}
