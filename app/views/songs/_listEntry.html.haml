@@ -1,7 +1,7 @@
 .songInfoLine{:id => ["songInfoLine_" + song.id.to_s]}
   - if song.title != nil
     .mediaTitle
-      %a{:href => "#"}= song.title
+      %a{:href => "/song-" + song.id.to_s}= song.title
   -else
     .mediaTitle
       %i="nil"
