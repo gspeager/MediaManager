@@ -1,4 +1,6 @@
 MediaManager::Application.routes.draw do
+  get "view/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -12,6 +14,7 @@ MediaManager::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  match ':type-:id' => 'view#index'
   resources :videos
   resources :songs
   resources :owners
