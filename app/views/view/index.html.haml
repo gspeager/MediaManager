@@ -1,7 +1,5 @@
 %h1 View#index
-%p Find me in app/views/view/index.html.haml
 - if @media == nil
   .content="none"
 - else
-  .contentTitle=@media.title
-  .contentFilename=@media.filename
+  = render :partial => "view/jplayer", :locals => { :media => @media }
