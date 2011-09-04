@@ -1,40 +1,18 @@
 .songInfoLine{:id => ["songInfoLine_" + song.id.to_s]}
-  - if song.title != nil
-    .mediaTitle
-      %a{:href => "/view/song/" + song.id.to_s}= song.title
-  -else
-    .mediaTitle
-      %i="nil"
-  - if song.tracknumber != nil
-    .trackNumber= song.tracknumber
-  -else
-    .trackNumber
-      %i="nil"
-  - if song.length != nil
-    .length= song.length
-  -else
-    .length
-      %i="nil"
-  - if song.album != nil
-    .albumName= song.album
-  -else
-    .albumName
-      %i="nil"
-  - if song.artist != nil
-    .artistName= song.artist
-  -else
-    .artistName
-      %i="nil"
-  - if song.playcount != nil
-    .playCount= song.playcount
-  -else
-    .playCount
-      %i="nil"
-  - if song.rating != nil
-    .mediaRating= song.rating
-  -else
-    .mediaRating
-      %i="nil"
+  .mediaTitle
+    %a{:href => "/view/song/" + song.id.to_s}= song.title
+  .trackNumber
+    !=display_nillable(song.tracknumber)
+  .length
+    !=display_nillable(song.length)
+  .albumName
+    !=display_nillable(song.album)
+  .artistName
+    !=display_nillable(song.artist)
+  .playCount
+    !=display_nillable(song.playcount)
+  .mediaRating
+    !=display_nillable(song.rating)
   .listItemActions
     .editLink{:id => ["editLink_" + song.id.to_s]}="edit"
 .songEditSection{:id => ["songEditSection_" + song.id.to_s]}
