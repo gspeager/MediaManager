@@ -14,7 +14,7 @@ MediaManager::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-  match ':type-:id' => 'view#index'
+  match 'view/:type/:id' => 'view#index'
   resources :videos
   resources :songs
   resources :owners
