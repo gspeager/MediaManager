@@ -3,6 +3,7 @@ require 'yaml'
 require 'rubygems'
 require 'song'
 require 'video'
+require 'mp3info'
 
 class DataAccess
 
@@ -28,8 +29,8 @@ class DataAccess
   end
 
   def initialize()
-    @movieExtensions = ['.avi', '.mp4', '.wmv']
-    @musicExtensions = ['.mp3', '.ogg', '.wma']
+    @movieExtensions = ['.mp4']
+    @musicExtensions = ['.mp3', '.mp4']
   end
 
   def ReadMovieDirectory
@@ -71,11 +72,25 @@ class DataAccess
   end
 
   def InsertSong(filename)
-    s = Song.find_or_initialize_by_filename(filename)
-    if s.title == nil || s.title.emtpy?
-      s.title = File.basename(filename, File.extname(filename))
+    s = Song.find_or_initialize_by_filename(filename) 
+    if(File.extname(filename) == ".mp3") 
+      Mp3Info.open(filename) do |mp3|
+        s.title = !mp3.tag.title && !s.title ? File.basename(filename, File.extname(filename)) : mp3.tag.title
+        s.artist = mp3.tag.artist if mp3.tag.artist
+        s.album = mp3.tag.album if mp3.tag.album
+        s.tracknumber = mp3.tag.tracknum if mp3.tag.tracknum
+        s.length = mp3.tag.length if mp3.tag.length
+        s.year = mp3.tag.year if mp3.tag.year
+        s.length = Time.at(mp3.length).gmtime.strftime('%M:%S')
+      end
       s.save
+    else
+      if s.title == nil || s.title.emtpy?
+        s.title = File.basename(filename, File.extname(filename))
+        s.save
+      end
     end
+    s.save
   end
   def InsertVideo(filename)
     v = Video.find_or_initialize_by_filename(filename)
