@@ -1,11 +1,11 @@
 .songListView
   .listHeaderSection
-    .mediaTitle= "Title"
+    .mediaTitle=  sortable "title"
     .trackNumber= "Track"
-    .length= "Length"
-    .albumName= "Album"
-    .artistName= "Artist"
-    .playCount= "Plays"
+    .length= sortable "length"
+    .albumName= sortable "album"
+    .artistName= sortable "artist"
+    .playCount= sortable "playcount", "Plays"
     .mediaRating= "Rating"
     .listItemActions= "Actions"
   - @songs.each do |song|
