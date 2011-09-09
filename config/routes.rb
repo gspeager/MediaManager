@@ -16,7 +16,7 @@ MediaManager::Application.routes.draw do
   #   resources :products
   match 'view/:type/:id' => 'view#index'
   match 'play/:type/:id' => 'view#play'
-  resources :videos
+  #resources :videos
   resources :songs
   resources :owners
   # Sample resource route with options:
