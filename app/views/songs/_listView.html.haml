@@ -1,5 +1,5 @@
-.searchArea
-  = render :partial => "shared/listSearchForm", :locals => { :formAction => 'index', :formController => 'songs', :searchFields => Song.searchFields }
+= hidden_field_tag :direction, params[:direction]
+= hidden_field_tag :sort, params[:sort]
 .songListView
   .listHeaderSection
     .mediaTitle=  sortable "title"
@@ -14,3 +14,4 @@
     = render :partial => "songs/listEntry", :locals => { :song => song }
 .pagination
   = will_paginate @songs
+  = page_entries_info @posts

@@ -6,5 +6,5 @@ $(document).ready(function(){
 		if(editLink.text() == 'edit') editLink.text('close');
 		else editLink.text('edit')
 	});
- 
+
 });

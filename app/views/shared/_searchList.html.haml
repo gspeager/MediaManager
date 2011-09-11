@@ -1,0 +1,8 @@
+.listWithSearch
+  =form_tag({:controller => formController, :action => formAction}, :method => 'get', :id => "listSearch") do
+    %p
+      = text_field_tag :search, params[:search]
+      = select_tag "field", options_for_select(searchFields)
+      = submit_tag "Search", :name => nil
+    #searchPartialView
+      = render partialView
