@@ -10,3 +10,5 @@
     .listItemActions= "Actions"
   - @songs.each do |song|
     = render :partial => "songs/listEntry", :locals => { :song => song }
+.pagination
+  = will_paginate @songs

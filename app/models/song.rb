@@ -1,5 +1,7 @@
 class Song < ActiveRecord::Base
 
+  self.per_page = 25
+
   def basenameAndExtension
     return File.basename(self.filename)
   end

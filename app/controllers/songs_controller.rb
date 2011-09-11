@@ -4,7 +4,7 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.xml
   def index
-    @songs = Song.order(sort_column + " " + sort_direction)
+    @songs = Song.page(params[:page]).order(sort_column + " " + sort_direction)
 
     respond_to do |format|
       format.html # index.html.erb
