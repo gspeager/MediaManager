@@ -1,0 +1,10 @@
+%html
+  %head
+    %title="MediaManager - Song List"
+    = stylesheet_link_tag "scaffold", "songs"
+    = javascript_include_tag "songs"
+    = csrf_meta_tag
+  .body
+    = render :partial => "layouts/navbar"
+    %hr
+    = yield

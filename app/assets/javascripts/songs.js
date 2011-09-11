@@ -6,3 +6,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require searchList
+//= require songListView
