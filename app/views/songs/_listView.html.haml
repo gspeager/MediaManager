@@ -1,8 +1,10 @@
+.searchArea
+  = render :partial => "shared/listSearchForm", :locals => { :formAction => 'index', :formController => 'songs', :searchFields => Song.searchFields }
 .songListView
   .listHeaderSection
     .mediaTitle=  sortable "title"
     .trackNumber= "Track"
-    .length= sortable "length"
+    .length= "Length"
     .albumName= sortable "album"
     .artistName= sortable "artist"
     .playCount= sortable "playcount", "Plays"

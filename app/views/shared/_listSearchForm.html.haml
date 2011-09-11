@@ -1,0 +1,8 @@
+.listSearchForm
+  =form_tag({:controller => formController, :action => formAction}, :method => 'get') do
+    %p
+      = hidden_field_tag :direction, params[:direction]
+      = hidden_field_tag :sort, params[:sort]
+      = text_field_tag :search, params[:search]
+      = select_tag "field", options_for_select(searchFields)
+      = submit_tag "Search", :name => nil
