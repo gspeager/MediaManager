@@ -7,6 +7,10 @@ $(function() {
     $.get($("#listSearch").attr("action"), $("#listSearch").serialize(), null, "script");
     return false;
   });
+  $("#listSearch select").change(function() {
+    $.get($("#listSearch").attr("action"), $("#listSearch").serialize(), null, "script");
+    return false;
+  });
   $("#listSearch").submit(function() {
     $.get(this.action, $(this).serialize(), null, "script");
     return false;
