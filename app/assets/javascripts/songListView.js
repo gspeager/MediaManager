@@ -1,6 +1,6 @@
 $(document).ready(function(){
  
-	$('.editLink').click(function(){
+	$('.editLink').live("click", function(){
 		var editLink = $(this);
 		$('#songEditSection_' + this.id.split('_')[1]).slideToggle('slow');
 		if(editLink.text() == 'edit') editLink.text('close');
