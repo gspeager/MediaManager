@@ -15,7 +15,7 @@ class Song < ActiveRecord::Base
   end
 
   def self.searchFields
-    return {'title' => 'title', 'album' => 'album', 'artist' => 'artist', 'genre' => 'genre', 'owner' => 'owner'}
+    return {'title' => 'title', 'album' => 'album', 'artist' => 'artist', 'genre' => 'genre'}
   end
 
   def self.search(searchTerm, searchColumn)
