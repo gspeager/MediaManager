@@ -109,7 +109,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  bcrypt-ruby
   haml
   haml-rails
   jquery-rails
