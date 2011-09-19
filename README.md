@@ -1,10 +1,12 @@
 README
 ======
-GBits Media Manger should be a simple server based media manager to use through a browser.
+Media Manger is to be a cloud based media locker/player .
 
 Functionality includes:
 
-* Set media directory for music and Movies.
+* Create User account
+* Add friends
+* Share Status/comments
 * Manage media file details.
 * Make and manage playlists.
 * Play media directly from the browser.
