@@ -10,6 +10,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'ruby-mp3info'
 gem 'will_paginate', "~> 3.0"
+gem "bcrypt-ruby", :require => "bcrypt"
 
 # Gems used only for assets and not required
 # in production environments by default.

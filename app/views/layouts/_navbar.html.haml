@@ -3,3 +3,6 @@
   =link_to 'Home', root_path
   =link_to 'Songs', songs_path
   /=link_to 'Videos', videos_path
+= render "layouts/authentication"
+-flash.each do |name, msg|
+  = content_tag :div, msg, :id => "flash_#{name}"
