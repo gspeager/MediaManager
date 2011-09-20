@@ -9,7 +9,7 @@ MediaManager::Application.routes.draw do
   resources :users
   resources :sessions
   resources :songs
-  resources :owners
+  resources :password_resets
 
   root :to => "home#index"
 end
