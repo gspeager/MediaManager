@@ -1,13 +1,17 @@
 %h1= "Log In"
 
 =form_tag sessions_path do
-  %p
+  .field
     = label_tag :email 
     %br
     = text_field_tag :email, params[:email]
-  %p
+  .field
     = label_tag :password
     %br
     = password_field_tag :password
+  .field
+    = label_tag :remember_me
+    %br
+    = check_box_tag :remember_me, 1, params[:remember_me]
   %p.button
     = submit_tag "Log in"
