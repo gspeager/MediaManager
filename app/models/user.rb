@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   
   has_secure_password
 
-  validates_confirmation_of :password
-  validates_presence_of :password, :on => :create
-  validates_presence_of :email
-  validates_uniqueness_of :email
+  validates_confirmation_of :password, :class => "error"
+  validates_presence_of :password, :on => :create, :class => "error"
+  validates_presence_of :email, :class => "error"
+  validates_uniqueness_of :email, :class => "error"
 
   before_create { generate_token(:auth_token) }
 

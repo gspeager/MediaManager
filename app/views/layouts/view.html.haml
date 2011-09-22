@@ -1,10 +1,11 @@
 %html
   %head
     %title="MediaManager - View Media"
-    = stylesheet_link_tag "scaffold", "view"
+    = stylesheet_link_tag "bootstrap/bootstrap", "view"
     = javascript_include_tag "view"
     = csrf_meta_tag
-  .body
-    = render :partial => "layouts/navbar"
-    %hr
-    = yield
+  %body
+    .container
+      = render :partial => "layouts/navbar"
+      .content
+        = yield

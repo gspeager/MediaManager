@@ -1,0 +1,12 @@
+/.brand= link_to 'Media Manager', root_path
+/%ul.nav
+/  %li=link_to 'Home', root_path
+/  %li=link_to 'Songs', songs_path
+/  =link_to 'Videos', videos_path
+- if current_user
+  .brand= link_to 'Media Manager', root_path
+  %ul.nav
+    %li=link_to 'Songs', songs_path
+    /=link_to 'Videos', videos_path
+- else
+  .brand= link_to 'Media Manager', root_path

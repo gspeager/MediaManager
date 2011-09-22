@@ -1,7 +1,6 @@
 = hidden_field_tag :direction, params[:direction]
 = hidden_field_tag :sort, params[:sort]
-.pagination
-  = will_paginate @songs
+= will_paginate @songs
 .songListView
   .listHeaderSection
     .mediaTitle=  sortable "title"
@@ -14,6 +13,5 @@
     .listItemActions= "Actions"
   - @songs.each do |song|
     = render :partial => "songs/listEntry", :locals => { :song => song }
-.pagination
-  = will_paginate @songs
-  = page_entries_info @posts
+= will_paginate @songs
+= page_entries_info @songs

@@ -1,8 +1,9 @@
-%h1="Media Manager"
-.navBar
-  =link_to 'Home', root_path
-  =link_to 'Songs', songs_path
-  /=link_to 'Videos', videos_path
-= render "layouts/authentication"
+.topbar
+  .fill
+    .container
+      = render "layouts/navlinks"
+      %ul.nav.secondary-nav
+        = render "layouts/authentication"
+
 -flash.each do |name, msg|
-  = content_tag :div, msg, :id => "flash_#{name}"
+  = content_tag :div, msg, :id => "flash_#{name}", :class => "alert-message " + name.to_s
