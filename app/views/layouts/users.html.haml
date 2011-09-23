@@ -1,0 +1,14 @@
+%html
+  %head
+    %title="MediaManager - user"
+    = stylesheet_link_tag "bootstrap/bootstrap", "users"
+    = javascript_include_tag "user"
+    = csrf_meta_tag
+  %body
+    .container
+      = render :partial => "layouts/navbar"
+      .content
+        = yield
+      %footer
+        %p
+          &copy; G-Bits 2011

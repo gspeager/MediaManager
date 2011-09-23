@@ -14,4 +14,17 @@ class UsersController < ApplicationController
       render "new"
     end
   end
+
+  def home
+    user_not_logged_in_redirect
+      
+    @user = current_user
+  end
+  
+  def edit
+    user_not_logged_in_redirect
+      
+    @user = current_user
+  end
+
 end

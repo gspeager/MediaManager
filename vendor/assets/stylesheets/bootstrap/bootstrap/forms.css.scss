@@ -43,7 +43,7 @@ label {
   font-size: $basefont;
   line-height: $baseline;
   float: left;
-  width: 130px;
+  width: 150px;
   text-align: right;
   color: $grayDark;
 }
@@ -60,6 +60,7 @@ input[type=checkbox], input[type=radio] {
 
 // Inputs, Textareas, Selects
 input, textarea, select, .uneditable-input {
+  margin-left: 10px;
   display: inline-block;
   width: 210px;
   padding: 4px;
