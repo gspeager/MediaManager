@@ -1,3 +1,4 @@
-%h1="Songs"
+- content_for :header do
+  %h1="Songs"
 
 = render :partial => "shared/searchList", :locals => { :formAction => 'index', :formController => 'songs', :searchFields => Song.searchFields, :partialView => 'songs/listView'}

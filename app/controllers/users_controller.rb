@@ -1,8 +1,12 @@
 class UsersController < ApplicationController
   force_ssl
   
+  before_filter :user_already_logged_in_redirect, :only => [:new]
+  before_filter :user_not_logged_in_redirect, :except => [:new, :create]
+
   def new
     @user = User.new
+    render :layout => 'application_no_sidebar'
   end
 
   def create
@@ -16,14 +20,10 @@ class UsersController < ApplicationController
   end
 
   def home
-    user_not_logged_in_redirect
-      
     @user = current_user
   end
   
   def edit
-    user_not_logged_in_redirect
-      
     @user = current_user
   end
 

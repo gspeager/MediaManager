@@ -1,8 +1,8 @@
+!!!5
 %html
   %head
-    %title="MediaManager - View Media"
-    = stylesheet_link_tag "bootstrap/bootstrap", "view"
-    = javascript_include_tag "view"
+    %title="MediaManager"
+    = stylesheet_link_tag "application"
     = csrf_meta_tag
   %body
     .container
@@ -12,3 +12,4 @@
       %footer
         %p
           &copy; G-Bits 2011
+  = javascript_include_tag "application"

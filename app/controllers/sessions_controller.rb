@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   force_ssl
+  layout 'application_no_sidebar'
 
   def new
   end
@@ -12,7 +13,7 @@ class SessionsController < ApplicationController
       else
         cookies[:auth_token] = user.auth_token
       end
-      redirect_to home_path, :flash => {:info => "Logged in!"}
+      redirect_to home_path, :flash => {:success => "Logged in!"}
     else
       flash.now[:error] = "Invalid email or password"
       render "new"

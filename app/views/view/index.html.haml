@@ -1,4 +1,5 @@
-%h1 View#index
+- content_for :header do
+  %h1= "Play " + @media.title
 - if @media == nil
   .content="none"
 - else

@@ -1,0 +1,11 @@
+th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+th .asc {
+  background-image: url(shared/arrow_down_8x8.png);
+}
+th .desc {
+  background-image: url(shared/arrow_up_8x8.png);
+}

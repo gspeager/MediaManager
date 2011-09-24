@@ -1,6 +1,8 @@
 class SongsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
+  before_filter :user_not_logged_in_redirect
+
   # GET /songs
   # GET /songs.xml
   def index

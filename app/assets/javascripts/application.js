@@ -6,3 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jQuery.jPlayer.2.1.0/index
+//= require bootstrap/bootstrap
+//= require_tree .

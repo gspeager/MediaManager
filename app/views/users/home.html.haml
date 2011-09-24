@@ -1,3 +1,5 @@
-.page-header
+- content_for :header do
   %h1= @user.email
-=render :partial => "users/userTemplate", :locals => { :mainContent => 'users/homeMainContent'}
+
+%h3
+  haba haba haba

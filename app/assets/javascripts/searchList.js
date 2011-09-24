@@ -1,5 +1,5 @@
 $(function() {
-  $("#searchPartialView .listHeaderSection a, #searchPartialView .pagination a").live("click", function() {
+  $("#table_main th a, #searchPartialView .pagination a").live("click", function() {
     $.getScript(this.href);
     return false;
   });
