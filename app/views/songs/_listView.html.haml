@@ -30,6 +30,7 @@
       %td
         !=display_nillable(song.rating)
       %td
-        .editLink{:id => ["editLink_" + song.id.to_s]}="edit"
+        %a{ :href => "#" }
+          edit
 = will_paginate @songs
 = page_entries_info @songs

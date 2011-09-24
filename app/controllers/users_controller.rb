@@ -13,9 +13,9 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       cookies[:auth_token] = @user.auth_token
-      redirect_to root_url, :flash => {:success => "Signed Up!"}
+      redirect_to home_path, :flash => {:success => "Signed Up!"}
     else
-      render "new"
+      render "new", :flash => {:error => "Unable to Sign Up, Please Try Again."}
     end
   end
 
