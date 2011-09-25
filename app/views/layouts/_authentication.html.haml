@@ -1,5 +1,5 @@
 - if current_user
-  %li= link_to current_user.email, edit_path
+  %li= link_to current_user.email, { :controller => "users", :action => "view", :id => current_user.public_token }
   %li= link_to "Log out", logout_path
 - else
   %li=link_to "Sign up", signup_path

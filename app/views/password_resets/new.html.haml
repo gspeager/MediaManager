@@ -1,5 +1,12 @@
-= form_tag password_resets_path, :method => :post do
-  .field
-    = label_tag :email
-    = text_field_tag :email, params[:email]
-  .actions= submit_tag "Reset Password"
+- content_for :header do
+  %h1
+    Reset Password
+
+.span8
+  = form_tag password_resets_path, :method => :post do
+    .formContents
+      .clearfix
+        = label_tag :email
+        .input
+          = text_field_tag :email, params[:email]
+    .actions= submit_tag "Reset Password", :class => "btn primary"

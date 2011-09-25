@@ -1,2 +1,130 @@
 - content_for :header do
   %h1="Edit Profile"
+
+.page-header
+  %h2
+    Profile Properties
+    %small
+      change the information displayed on your profile
+= form_for @user do |f|
+  .formContents
+    - if @user.errors.any?
+      .alert-message.block-message.error
+        %h2="Please resolve issues"
+        %ul
+          - for message in @user.errors.full_messages
+            %li= message
+    %fieldset
+      %legend
+        Basic Information
+      .clearfix
+        = f.label :firstname, "First Name"
+        .input
+          = f.text_field :firstname
+      .clearfix
+        = f.label :lastname, "Last Name"
+        .input
+          = f.text_field :lastname
+      .clearfix
+        = f.label :city
+        .input
+          = f.text_field :city
+      .clearfix
+        = f.label :country
+        .input
+          = f.text_field :country
+      .actions
+        = f.submit :value => "Save", :class => "btn primary"
+
+= form_for(@user, :html => {:class => "form-stacked"}) do |f|
+  .formContents
+    - if @user.errors.any?
+      .alert-message.block-message.error
+        %h2="Please resolve issues"
+        %ul
+          - for message in @user.errors.full_messages
+            %li= message
+    %fieldset
+      %legend
+        Your Favorite Media
+      .clearfix
+        = f.label :tvshows, "Television Shows"
+        .input
+          = f.text_area(:tvshows, :rows => 4)
+          %span.help-block
+            Enter your favorite television shows separated by a ',' or ';' 
+      .clearfix
+        = f.label :movies
+        .input
+          = f.text_area(:movies, :rows => 4)
+          %span.help-block
+            Enter your favorite movies separated by a ',' or ';' 
+      .clearfix
+        = f.label :artists
+        .input
+          = f.text_area(:artists, :rows => 4)
+          %span.help-block
+            Enter your favorite musicians separated by a ',' or ';' 
+      .clearfix
+        = f.label :albums
+        .input
+          = f.text_area(:albums, :rows => 4)
+          %span.help-block
+            Enter your favorite music albums separated by a ',' or ';' 
+      .clearfix
+        = f.label :liveshows, "Concerts"
+        .input
+          = f.text_area(:liveshows, :rows => 4)
+          %span.help-block
+            Enter the concerts you have been to separated by a ',' or ';' 
+      .actions
+        = f.submit :value => "Save", :class => "btn primary"
+
+.page-header
+  %h2
+    Login Information
+    %small
+      change your login credentials including email and password
+  
+= form_for @user do |f|
+  .formContents
+    -if @user.errors.any?
+      .alert-message.block-message.error
+        %h2="Please resolve issues"
+        %ul
+          - for message in @user.errors.full_messages
+            %li= message
+    %fieldset
+      %legend
+        Change Email
+    .clearfix
+      = f.label :email
+      .input
+        = f.text_field :email
+  .actions= f.submit "Update Email", :class => "btn primary"
+
+
+= form_for @user do |f|
+  .formContents 
+    -if @user.errors.any?
+      .alert-message.block-message.error
+        %h2="Please resolve issues"
+        %ul
+          - for message in @user.errors.full_messages
+            %li= message
+    %fieldset
+      %legend
+        Change Password
+    .clearfix
+      = f.label :old_password
+      .input
+        = f.password_field :old_password
+    .clearfix
+      = f.label :new_password
+      .input
+        = f.password_field :new_password
+    .clearfix
+      = f.label :new_password_confirmation
+      .input
+        = f.password_field :new_password_confirmation
+    .actions= f.submit "Update Password", :class => "btn primary"

@@ -8,7 +8,7 @@
     .container
       = render :partial => "layouts/navbar"
       .content
-        .page-header
+        .main-page-header
           -flash.each do |name, msg|
             = content_tag :div, msg, :id => "flash_#{name}", :class => "alert-message " + name.to_s
           = yield :header

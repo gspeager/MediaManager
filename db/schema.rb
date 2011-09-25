@@ -11,13 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110920031124) do
-
-  create_table "owners", :force => true do |t|
-    t.string   "ownerName"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110924194219) do
 
   create_table "songs", :force => true do |t|
     t.string   "filename"
@@ -46,6 +40,16 @@ ActiveRecord::Schema.define(:version => 20110920031124) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "public_token"
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "city"
+    t.string   "country"
+    t.text     "tvshows"
+    t.text     "movies"
+    t.text     "artists"
+    t.text     "albums"
+    t.text     "liveshows"
   end
 
   create_table "videos", :force => true do |t|

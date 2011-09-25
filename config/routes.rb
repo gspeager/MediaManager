@@ -2,6 +2,8 @@ MediaManager::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   get "home" => "users#home", :as => "home"
   get "edit" => "users#edit", :as => "edit"
+  match 'profile/:id' => 'users#view'
+  
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"
   

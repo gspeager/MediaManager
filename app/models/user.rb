@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation
-  
+  attr_protected :auth_token, :public_token
+
   has_secure_password
 
   validates_confirmation_of :password, :class => "error"
@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email, :class => "error"
 
   before_create { generate_token(:auth_token) }
+  before_create { generate_token(:public_token) }
 
   def send_password_reset
     generate_token(:password_reset_token)
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
 
   def generate_token(column)
     begin
-      self[column] = SecureRandom.urlsafe_base64
+      self[column] = SecureRandom.hex(20)
     end while User.exists?(column => self[column])
   end
 
