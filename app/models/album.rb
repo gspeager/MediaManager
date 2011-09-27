@@ -2,7 +2,7 @@ class Album < ActiveRecord::Base
   belongs_to :artist
   has_many :songs
 
-
+  before_create { generate_token(:public_token) }
 
   def generate_token(column)
     begin

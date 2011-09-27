@@ -1,7 +1,8 @@
 class Artist < ActiveRecord::Base
   has_many :albums
-  has_many :songs :through => :albums
+  has_many :songs, :through => :albums
 
+  before_create { generate_token(:public_token) }
 
   def generate_token(column)
     begin

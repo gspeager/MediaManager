@@ -1,7 +1,6 @@
 require 'fileutils'
 require 'yaml'
 require 'rubygems'
-require 'mp3info'
 
 class DataAccess
 
@@ -32,6 +31,13 @@ class DataAccess
 
   def self.getUserPhotoDirectory(user_hash)
     return ENVIRONMENT_CONFIG['media_directory']   + "/" + user_hash + "/photos/"
+  end
+
+  def self.MoveFile(oldFileName, newFileName)
+    if !File.directory?(File.dirname(newFileName))
+      FileUtils.mkdir_p(File.dirname(newFileName))
+    end
+    FileUtils.mv(oldFileName, newFileName)
   end
 
   def WriteConfigFile

@@ -1,0 +1,10 @@
+.alert-message.block-message.info
+  %h2
+    = heading_message
+  %p
+    = secondary_message
+  =form_for @song, :html => { :multipart => true, :class => "noBorder"} do |f|
+    .formContents
+      .clearfix
+        = f.file_field :file
+        = submit_tag "Upload", :name => nil, :class => "btn primary"

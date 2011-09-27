@@ -9,11 +9,9 @@ class SongsController < ApplicationController
     @songs = Song.find_by_user_id(current_user.id)
     if @songs
       @songs = Song.search(params[:search], params[:field]).where('user_id LIKE ?', current_user.id).page(params[:page]).order(sort_column + " " + sort_direction)
-    else
-      @song = Song.new
-      @user = current_user
-      @song.user_id = @user.public_token
     end
+    @song = Song.new
+    @song.user_id = current_user.public_token
   end
 
   # GET /songs/1
@@ -50,6 +48,8 @@ class SongsController < ApplicationController
     @song.user_id = current_user.id
     respond_to do |format|
       if @song.save
+        @song.update_initial_song_info
+        @song.save
         format.html { redirect_to(@song, flash => {:success => 'Song was successfully created.'}) }
         format.xml  { render :xml => @song, :status => :created, :location => @song }
       else

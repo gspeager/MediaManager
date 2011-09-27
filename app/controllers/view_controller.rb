@@ -27,7 +27,7 @@ class ViewController < ApplicationController
     if(current_user.id != @media.user_id)
       redirect_to home_path, :flash => {:error => "That media is not owned by you."}
     else
-      send_file(DataAccess.getUserMusicDirectory(current_user.public_token) + @media.file_file_name, :filename => @media.basenameAndExtension)
+      send_file(DataAccess.getUserMusicDirectory(current_user.public_token) + @media.sub_path, :filename => @media.basenameAndExtension)
     end
   end
 
