@@ -1,5 +1,9 @@
 - content_for :header do
-  %h1= "Play " + @media.title
+  %h1
+    -if @media.title
+      ="Play " + @media.title
+    -else
+      ="Play Song"
 - if @media == nil
   .content="none"
 - else

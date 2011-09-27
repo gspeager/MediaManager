@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       cookies[:auth_token] = @user.auth_token
+      DataAccess.createUserDirectories(@user.public_token)
       redirect_to edit_path, :flash => {:success => "Signed Up! Please enter some details about yourself."}
     else
       render "new", :flash => {:error => "Unable to Sign Up, Please Try Again."}

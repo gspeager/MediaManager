@@ -1,4 +1,18 @@
 - content_for :header do
   %h1="Songs"
 
-= render :partial => "shared/searchList", :locals => { :formAction => 'index', :formController => 'songs', :searchFields => Song.searchFields, :partialView => 'songs/listView'}
+- if @songs
+  = render :partial => "shared/searchList", :locals => { :formAction => 'index', :formController => 'songs', :searchFields => Song.searchFields, :partialView => 'songs/listView'}
+- else
+  .alert-message.block-message.info
+    %h1
+      You have no songs available yet
+    %p
+      Please upload a song to get started
+    =form_for @song, :html => { :multipart => true, :class => "noBorder"} do |f|
+      .formContents
+        .clearfix
+          = f.file_field :file
+          = submit_tag "Upload", :name => nil, :class => "btn primary"
+
+  

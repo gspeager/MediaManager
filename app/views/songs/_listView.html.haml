@@ -6,29 +6,29 @@
   %thead
     %tr
       %th= sortable "title"
-      %th= "Track"
-      %th= "Length"
-      %th= sortable "album"
-      %th= sortable "artist"
-      %th= sortable "playcount", "Plays"
-      %th= "Rating"
+      /%th= "Track"
+      /%th= "Length"
+      /%th= sortable "album"
+      /%th= sortable "artist"
+      /%th= sortable "playcount", "Plays"
+      /%th= "Rating"
       %th= "Actions"
   - @songs.each do |song|
     %tr
       %td
-        %a{:href => "/view/song/" + song.id.to_s}= song.title
-      %td
-        !=display_nillable(song.tracknumber)
-      %td
-        !=display_nillable(song.length)
-      %td
-        !=display_nillable(song.album)
-      %td
-        !=display_nillable(song.artist)
-      %td
-        !=display_nillable(song.playcount)
-      %td
-        !=display_nillable(song.rating)
+        =link_to song.title, { :controller => "view", :action => "index", :type => "song", :id => song.public_token }
+      /%td
+      /  !=display_nillable(song.tracknumber)
+      /%td
+      /  !=display_nillable(song.length)
+      /%td
+      /  !=display_nillable(song.album)
+      /%td
+      /  !=display_nillable(song.artist)
+      /%td
+      /  !=display_nillable(song.playcount)
+      /%td
+      /  !=display_nillable(song.rating)
       %td
         %a{ :href => "#" }
           edit

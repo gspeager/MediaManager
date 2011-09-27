@@ -6,7 +6,14 @@ class SongsController < ApplicationController
   # GET /songs
   # GET /songs.xml
   def index
-    @songs = Song.search(params[:search], params[:field]).page(params[:page]).order(sort_column + " " + sort_direction)
+    @songs = Song.find_by_user_id(current_user.id)
+    if @songs
+      @songs = Song.search(params[:search], params[:field]).where('user_id LIKE ?', current_user.id).page(params[:page]).order(sort_column + " " + sort_direction)
+    else
+      @song = Song.new
+      @user = current_user
+      @song.user_id = @user.public_token
+    end
   end
 
   # GET /songs/1
@@ -24,7 +31,7 @@ class SongsController < ApplicationController
   # GET /songs/new.xml
   def new
     @song = Song.new
-
+    @song.user_id = current_user.id
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @song }
@@ -40,14 +47,14 @@ class SongsController < ApplicationController
   # POST /songs.xml
   def create
     @song = Song.new(params[:song])
-
+    @song.user_id = current_user.id
     respond_to do |format|
       if @song.save
-        format.html { redirect_to(@song, :notice => 'Song was successfully created.') }
+        format.html { redirect_to(@song, flash => {:success => 'Song was successfully created.'}) }
         format.xml  { render :xml => @song, :status => :created, :location => @song }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @song.errors, :status => :unprocessable_entity }
+        format.xml  { render :xml => @song.errors, flash => {:error => :unprocessable_entity} }
       end
     end
   end
@@ -81,7 +88,7 @@ class SongsController < ApplicationController
   end
 
   def sort_column
-    Song.column_names.include?(params[:sort]) ? params[:sort] : "artist"
+    Song.column_names.include?(params[:sort]) ? params[:sort] : "title"
   end
   
   def sort_direction

@@ -1,13 +1,7 @@
 ---
 development:
-  music_directory: c:\media\music
-  movie_directory: c:\media\movies
-  organize: true
+  media_directory: c:/MediaManager
 test:
-  music_directory: c:\Music
-  movie_directory: c:\Movies
-  organize: true
+  media_directory: c:/MediaManager
 production:
-  music_directory: c:\Music
-  movie_directory: c:\Movies
-  organize: true
+  media_directory: c:/MediaManager

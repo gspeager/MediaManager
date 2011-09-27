@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  start: MyString
+  end: MyString
+  bio: MyText
+  public_token: MyString
+
+two:
+  name: MyString
+  start: MyString
+  end: MyString
+  bio: MyText
+  public_token: MyString

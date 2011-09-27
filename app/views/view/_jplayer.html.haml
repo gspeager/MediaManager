@@ -1,4 +1,4 @@
-#jquery_jplayer_1.jp-jplayer{ :data_media_extension => media.getExtension, :data_media_id => media.id, :data_media_type => media.mediaType}
+#jquery_jplayer_1.jp-jplayer{ :data_media_extension => media.getExtension, :data_media_id => media.public_token, :data_media_type => media.mediaType}
 
 #jp_container_1.jp-audio
   .jp-type-single
@@ -31,7 +31,11 @@
             %a{:href => "javascript:;", :class => "jp-repeat-off", :tabindex => "1", :title =>"repeat off"}="repeat off"
     .jp-title
       %ul
-        %li=media.title
+        %li
+          -if media.title
+            =media.title
+          - else
+            = "Play Song"
     .jp-no-solution
       %span= "Update Required"
       To play the media you will need to either update your browser to a recent version or update your 

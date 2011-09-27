@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  year: MyString
+  public_token: MyString
+  notes: MyText
+
+two:
+  name: MyString
+  year: MyString
+  public_token: MyString
+  notes: MyText

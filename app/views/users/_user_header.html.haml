@@ -1,9 +1,9 @@
 %h1
   - if @user.firstname
     = @user.firstname + " " + @user.lastname
+    %small= @user.city + ", " + @user.country
   - else
     = @user.email
-  %small= @user.city + ", " + @user.country
 - if @user.firstname
   %h5= @user.email
 

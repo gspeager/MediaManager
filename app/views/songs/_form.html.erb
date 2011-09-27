@@ -12,8 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :filename %><br />
-    <%= f.text_field :filename %>
+    <%= f.file_field :file %><br />
   </div>
   <div class="field">
     <%= f.label :title %><br />
@@ -34,10 +33,6 @@
   <div class="field">
     <%= f.label :year %><br />
     <%= f.text_field :year %>
-  </div>
-  <div class="field">
-    <%= f.label :owner %><br />
-    <%= f.text_field :owner %>
   </div>
   <div class="field">
     <%= f.label :albumart %><br />
