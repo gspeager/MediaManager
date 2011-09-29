@@ -50,11 +50,9 @@ class SongsController < ApplicationController
       if @song.save
         @song.update_initial_song_info
         @song.save
-        format.html { redirect_to(@song, flash => {:success => 'Song was successfully created.'}) }
-        format.xml  { render :xml => @song, :status => :created, :location => @song }
+        format.html { redirect_to songs_path, flash => {:success => 'Song was successfully created.'} }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @song.errors, flash => {:error => :unprocessable_entity} }
       end
     end
   end

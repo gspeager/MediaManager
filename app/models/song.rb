@@ -10,7 +10,7 @@ class Song < ActiveRecord::Base
   self.per_page = 25
 
   has_attached_file :file,
-                    :url  => "nil",
+                    ##:url  => "/:user_id/:public_token/:basename.:extension",
                     :path => DataAccess.getUserMusicDirectory(":user_id") + ":basename.:extension"
 
   validates_attachment_presence :file
@@ -95,6 +95,10 @@ class Song < ActiveRecord::Base
   Paperclip.interpolates :user_id  do |attachment, style|
     attachment.instance.user.public_token
   end
+
+  #Paperclip.interpolates :public_token  do |attachment, style|
+  #  attachment.instance.public_token
+  #end
 
   def initialize_song
     generate_token(:public_token)

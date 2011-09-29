@@ -15,6 +15,7 @@ $(document).ready(function(){
 		ready: function (event) {
 			$(this).jPlayer("setMedia", {
 				mp3: mediaUrl,
+				//mp3: "/04%20Different%20Names%20for%20the%20Same%20Thing.mp3"
 			});
 		},
 		swfPath: "js",
