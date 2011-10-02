@@ -56,7 +56,8 @@ class ViewController < ApplicationController
                 :disposition => "inline",
                 :status => status_code,
                 :stream =>  'true',
-                :buffer_size  =>  4096)
+                :buffer_size  =>  4096, 
+                :x_sendfile => true )
       
     end
   end
