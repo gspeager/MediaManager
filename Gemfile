@@ -11,6 +11,7 @@ gem 'haml-rails'
 gem 'ruby-mp3info'
 gem 'will_paginate', "~> 3.0"
 gem "paperclip", "~> 2.4"
+gem 'redcarpet'
 
 # Gems used only for assets and not required
 # in production environments by default.

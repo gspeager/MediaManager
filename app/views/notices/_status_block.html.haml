@@ -1,0 +1,12 @@
+.well
+  .status_header
+    -if notice.author_id && notice.author_id != notice.user.id
+      - temp_user = User.find(notice.author_id)
+      = link_to temp_user.display_name, { :controller => "users", :action => "view", :id => temp_user.public_token }
+      = " > "
+    =link_to notice.user.display_name, { :controller => "users", :action => "view", :id => notice.user.public_token }
+    /= @notice.user.email
+  .status_body
+    =notice.display_body
+  .help-block
+    =notice.created_at.strftime("%m/%d/%Y @ %I:%M%p")

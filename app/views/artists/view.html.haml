@@ -1,0 +1,8 @@
+-if !@artist
+  - content_for :header do
+    %h1= "Artist not Found"
+-else
+  - content_for :header do
+    %h1= @artist.name
+
+%p Find me in app/views/artists/view.html.haml

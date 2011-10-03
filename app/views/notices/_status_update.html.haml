@@ -1,0 +1,11 @@
+.alert-message.block-message.info
+  %h2
+    = header_message
+  %p
+    = aux_message
+  =form_for ([@user, @user.notices.build]), :html => { :class => "noBorder"} do |f|
+    .formContents
+      .clearfix
+        = f.text_area(:body, :rows => 4, :class => 'xlarge')
+        .action
+          = submit_tag "Update", :name => nil, :class => "btn primary"

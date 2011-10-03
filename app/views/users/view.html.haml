@@ -4,5 +4,20 @@
 -else
   - content_for :header do
     = render "user_header"
-
-%h2="Profile"
+.row
+  .span7
+    =render :partial => "notices/status_update", :locals => { :header_message => "Leave a message", :aux_message => "" }
+    -if @notices.count > 0
+      -@notices.first(5).each do |notice|
+        =render :partial => "notices/status_block", :locals => { :notice => notice }
+  .span6
+    %h4
+      New Songs	
+    %div
+      -@user.songs.last(5).reverse.each do |song|
+        .help-block
+          =song.created_at.strftime("%m/%d/%Y @ %I:%M%p")
+        %div
+          %strong=song.title 
+          = " - " 
+          = link_to song.artist.name, { :controller => "artists", :action => "view", :id => song.artist.public_token }

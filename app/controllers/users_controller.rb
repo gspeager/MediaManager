@@ -22,23 +22,25 @@ class UsersController < ApplicationController
 
   def view
     @user = User.find_by_public_token(params[:id])
+    @notices = Notice.user_notices(@user.id)
   end
 
   def home
     @user = current_user
+    @notices = Notice.user_notices(@user.id)
   end
   
   def edit
     @user = current_user
   end
 
-    def update
-      @user = current_user
-      if @user.update_attributes(params[:user])
-        redirect_to edit_path, :flash => {:success => "Properties were successfully updated."}
-      else
-        redirect_to edit_path, :flash => {:error => :unprocessable_entity }
-      end
-    end  
+  def update
+    @user = current_user
+    if @user.update_attributes(params[:user])
+      redirect_to edit_path, :flash => {:success => "Properties were successfully updated."}
+    else
+      redirect_to edit_path, :flash => {:error => :unprocessable_entity }
+    end
+  end  
 
 end

@@ -1,5 +1,8 @@
 - content_for :header do
   =render "user_header"
 
-%h2
-  Home
+=render :partial => "notices/status_update", :locals => { :header_message => "Let people know what's new!", :aux_message => "Tell your friends about new bands or songs that you are listening to." }
+/-@user.notices.each do |notice|
+/  =render :partial => "notices/status_block", :locals => { :notice => notice}
+-if @notices.count > 0
+  =render :partial => "notices/status_block", :locals => { :notice => @notices.first }

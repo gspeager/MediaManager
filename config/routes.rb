@@ -3,6 +3,7 @@ MediaManager::Application.routes.draw do
   get "home" => "users#home", :as => "home"
   get "edit" => "users#edit", :as => "edit"
   match 'profile/:id' => 'users#view'
+  match 'artist/:id' => 'artists#view'
   
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"
@@ -10,7 +11,9 @@ MediaManager::Application.routes.draw do
   match 'view/:type/:id' => 'view#index'
   match 'play/:type/:id' => 'view#play'
   
-  resources :users
+  resources :users do
+    resources :notices
+  end
   resources :sessions
   resources :songs
   resources :password_resets
